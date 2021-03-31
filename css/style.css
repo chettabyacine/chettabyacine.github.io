@@ -1,0 +1,90 @@
+*{
+    margin: 0;
+    text-decoration: none;
+    padding: 0%;
+}
+
+html {
+    margin: 0px;
+    width: 100%;
+    min-height: 100vh;
+    padding: 0;
+    
+ }
+
+
+ 
+ body {
+    margin: 0px;
+    min-height: 100%;
+    width: 100%;
+    font-size: 3.2vw;
+    min-height: 100vh;
+    padding: 0;
+ }
+
+    
+ .explication{
+    font-size: 0.8rem;
+    max-width: 1000px;
+}
+
+.image-main{
+    display: flex;
+    width: 98%;
+    max-width: 400px;
+    height: auto;
+    max-width: 1000px;
+    margin: 0 auto;
+    position: relative;
+    bottom: 10%;
+    padding-bottom: 0%;
+}
+
+.Download-btn{
+    border-radius: 20px;
+    border-width: 2px;
+    border-color: #45A29e;
+    color: #45A29e;
+}
+
+
+.footer {
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    height: 4em;
+    line-height: 4em;
+    display: block;
+    font-size: 0.7rem;
+}
+
+@media screen and (orientation:portrait){
+    
+    .footer{
+        position: absolute;
+    }
+
+    .image-main{
+        padding-bottom: 5%;
+    }
+}
+
+@media screen and (orientation: landscape) and (max-width:1000px){
+    .image-main{
+        margin: 0px;
+        float: right;
+        width: 60%;
+        height: auto;
+    }
+    .footer{
+        position: relative;
+    }
+}
+
+
+@media screen and (orientation: landscape) and (min-width:1000px){
+    .footer{
+        position: absolute;
+    }
+}

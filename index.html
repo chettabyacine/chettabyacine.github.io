@@ -1,23 +1,51 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Auto Fast</title>
+        <title>Esi Solution</title>
         <meta charset="UTF-8">
-        <link rel ="stylesheet" href="style.css"/>
+        <link rel ="stylesheet" href="css/bootstrap.min.css"/> <!--Bootstrap : Lux-->
+        <link rel ="stylesheet" href="css/style.css"/>
+        <link rel="icon"  type="image/svg" href="ressources/icons/download-icon.svg">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
-    <body>
-        <div class="sidebar">
-            <img class="logo_img" src="photos/communes/logo.png" alt="Auto Fast" >
-            <img class="help_icon" src="icons/help_outline-24px.png" alt="Help">
-        </div>
-         <div class="slogon">
-           <strong>LE MELLIEUR OUTIL DE GESTION <br> DES VOITURES DE VOTRE ENTREPRISE</strong>
+    <body style="font-family: Cinzel, Georgia, serif;">
+        <br>
+        <!--Title-->
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col">
+                    <h1 class="text-center font-weight-bold"><strong>Esi Solutions</strong></h1>
+                </div>
+            </div>
         </div>
 
-        <img class="voiture_img" src="photos/communes/voiture.png" alt="Auto Fast">
-        <div class="btns">
-            <button class="btn btn_inscrire" ><strong>CREER UN COMPTE</strong></button>
-            <button class="btn btn_indetifier"><strong>S'IDENTIFIER</strong> </button>
+        <!--explication text et image-main-->
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-12 d-flex justify-content-center">
+                    <p class="explication  text-center"><small>Ici vous pouvez télécharger les corrigés disponibles d'ALSDD, faits par Yacine Chettab.<br>Pour le moment, uniquement le chapitre des Listes est disponible.</small> </p>
+                </div>
+            </div>
+           <img class="image-main" src="ressources/photos/photo_main.svg" alt="photo_main" style="max-width: 400px;">
         </div>
+
+        <br>
+         <!-- download button-->
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col  d-flex justify-content-center">
+                    <a href="ressources/documents/1_Listes_yacine.pdf" target="_blank"  class="btn btn-outline-light Download-btn">Télécharger</a>
+                </div>
+            </div>
+        </div>
+        
+        <!--copyright-->
+        <footer class="footer">
+            <div class="container d-flex justify-content-center">
+                <span>© 2021. Tous droits réservés.</span>
+                <a href ="mailto:jy_chettab@esi.dz" target="_blank"><strong>Contactez-moi</strong></a>
+            </div>
+        </footer>
+
     </body>
 </html>

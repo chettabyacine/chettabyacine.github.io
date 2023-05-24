@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Thrift Shop Admin</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../protected/admin.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+    <script src="../protected/admin.js"></script>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-md bg-light  navbar-light"
+        style="padding-top:0px ; padding-bottom: 0px; background-color: white; padding-right: .5rem; padding-left: .5rem;">
+        <a class="navbar-brand" href="index.html">
+            <img src="./favicon.ico" alt="Thrift Shop" style="width:20%; height: auto;">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="collapsibleNavbar"
+            style="font-family: 'Times New Roman', Times, serif;">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item" style="padding:0px 10px">
+                    <a class="nav-link" href="index.html" style="font-size: smaller; font-weight: bold;">HOME</a>
+                </li>
+                <li class="nav-item" style="padding:0px 10px;">
+                    <a class="nav-link" href="aboutUs.html" style="font-size: smaller;font-weight: bold;">ABOUT US</a>
+                </li>
+                <li class="nav-item" style="padding:0px 10px;">
+                    <a class="nav-link" href="#" id="logoutButton"
+                        style="font-size: smaller;font-weight: bold;">LOGOUT</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <hr style="margin: 0%;" />
+
+    <div class="container">
+        <!--add new product-->
+        <div class="mt-4">
+            <h2>New product</h2>
+            <div class="table-wrapper">
+                <table class="table" id="addProductTable">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Description</th>
+                            <th>Image</th>
+                            <th>Alt</th>
+                            <th>Price</th>
+                            <th>Type</th>
+                            <th> Size XS</th>
+                            <th>Size S</th>
+                            <th>Size M</th>
+                            <th>Size L</th>
+                            <th>Size XL</th>
+                            <th>Brand</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr id="newProductRow">
+                            <td><input type="text" name="newProductName"></td>
+                            <td><input type="text" name="newProductDescription"></td>
+                            <td><input type="text" name="newProductImage"></td>
+                            <td><input type="text" name="newProductAlt"></td>
+                            <td><input type="text" name="newProductPrice"></td>
+                            <td><input type="text" name="newProductType"></td>
+                            <td><input type="number" class="size-input" name="newProductSizeXS"></td>
+                            <td><input type="number" class="size-input" name="newProductSizeS"></td>
+                            <td><input type="number" class="size-input" name="newProductSizeM"></td>
+                            <td><input type="number" class="size-input" name="newProductSizeL"></td>
+                            <td><input type="number" class="size-input" name="newProductSizeXL"></td>
+                            <td><input type="text" name="newProductBrand"></td>
+                            <td><button id="addProductButton" class="btn btn-success">+</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <script id="product-row-template" type="text/x-handlebars-template">
+    <tr>
+        <td>{{id}}</td>
+        <td><input type="text" value="{{name}}"></td>
+        <td><input type="text" value="{{description}}"></td>
+        <td><input type="text" value="{{image}}"></td>
+        <td><input type="text" value="{{alt}}"></td>
+        <td><input type="text" value="{{price}}"></td>
+        <td><input type="text" value="{{type}}"></td>
+        {{#each sizes}}
+        <td>
+            <input type="number" class="size-input" data-size="{{this.size}}" value="{{this.quantity}}">
+        </td>
+        {{/each}}
+        <td><input type="text" value="{{brand}}"></td>
+    </tr>
+</script>
+
+    <!-- Products -->
+    <div class="container">
+        <h2 class="my-4">My products</h2>
+        <div class="" style="display: flex; justify-content:center;">
+            <div class="row justify-content-center mt-3 mb-3"  style="margin: 0%;">
+                <div class="col">
+                    <div class="input-group">
+                        <input type="search" id="search-input" class="form-control rounded" placeholder="Search by ID"
+                            aria-label="Search" aria-describedby="search-addon"" />
+                        <div class="input-group-append">
+                            <button type="button" id="search-btn" class="btn btn-outline-secondary"
+                                style="font-family: 'Times New Roman', Times, serif; font-size: small;">SEARCH</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="table-wrapper">
+            <table class="table" id="productsTable">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th>Image</th>
+                        <th>Alt</th>
+                        <th>Price</th>
+                        <th>Type</th>
+                        <th>Size XS</th>
+                        <th>Size S</th>
+                        <th>Size M</th>
+                        <th>Size L</th>
+                        <th>Size XL</th>
+                        <th>Brand</th>
+                        <th></th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="container mt-5">
+            <h2>Payments</h2>
+            <div class="table-responsive">
+                <table class="table table-bordered table-striped" id="payment-form-table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Family Name</th>
+                            <th>Email</th>
+                            <th>Date of Birth</th>
+                            <th>Phone Number</th>
+                            <th>Address</th>
+                            <th>Additional Address Information</th>
+                            <th>City</th>
+                            <th>Country</th>
+                            <th>Total Price</th>
+                            <th>Product ID</th>
+                            <th>State</th>
+                        </tr>
+                    </thead>
+                    <tbody id="payment-form-table-body">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+
+        <script id="payment-form-template" type="text/x-handlebars-template">
+            {{#each data}}
+              <tr>
+                <td>{{user_name}}</td>
+                <td>{{user_family_name}}</td>
+                <td>{{email}}</td>
+                <td>{{date_of_birth}}</td>
+                <td>{{phone_number}}</td>
+                <td>{{address}}</td>
+                <td>{{additional_address_information}}</td>
+                <td>{{city}}</td>
+                <td>{{country}}</td>
+                <td>{{total_price}}</td>
+                <td>{{product_id}}</td>
+                <td>
+                    <!-- unless = if not -->
+                    {{#unless is_send}} 
+                    <button class="btn-send" data-id="{{this.id}}">pending</button>
+                {{else}}
+                    <span class="span-sent">sent</span>
+                {{/unless}}
+                
+                </td>
+              </tr>
+            {{/each}}
+        </script>
+
+</body>
+
+</html>

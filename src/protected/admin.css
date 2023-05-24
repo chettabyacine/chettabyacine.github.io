@@ -1,0 +1,167 @@
+.nav-item a {
+  padding: 5px;
+}
+
+input[type=text],
+input[type=number],
+textarea {
+  border: 1px solid lightgray;
+}
+
+input[type=text] {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.table-wrapper {
+  display: flex;
+  justify-content: center;
+  overflow-x: auto;
+}
+
+.nav-item {
+  padding: 5px;
+}
+
+body {
+  background: #f2f2f2;
+  font-family: 'Playfair Display', serif;
+  color: #333;
+}
+
+.container {
+  max-width: 100%;
+}
+
+h2 {
+  text-align: left;
+  margin-bottom: 30px;
+  color: black;
+  padding-left: 2%;
+}
+
+input[type=text],
+textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-sizing: border-box;
+  margin-bottom: 16px;
+  resize: vertical;
+  font-size: 1rem;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.size-column {
+  width: 10%;
+}
+
+table {
+  width: 100%;
+  margin: 0 2%;
+}
+
+* {
+  font-size: medium;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.size-input {
+  max-width: 60px;
+}
+
+.btn-primary {
+  margin-left: 2%;
+}
+
+#payment-form-table {
+  width: 100%;
+  overflow-x: auto;
+}
+
+#payment-form-table {
+  font-family: 'Times New Roman', Times, serif, Arial, sans-serif;
+  width: 100%;
+  border-collapse: collapse;
+}
+
+#payment-form-table th,
+#payment-form-table td {
+  padding: 8px;
+  text-align: left;
+}
+
+#payment-form-table th {
+  background-color: #f8f8f8;
+  color: black;
+  letter-spacing: 1px;
+  border-bottom: 1px solid #ddd;
+}
+
+#payment-form-table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+#payment-form-table tr:hover {
+  background-color: #ddd;
+}
+
+#payment-form-table td {
+  border-bottom: 1px solid #ddd;
+}
+
+#payment-form-table th:first-child,
+#payment-form-table td:first-child {
+  border-left: none;
+}
+
+#payment-form-table th:last-child,
+#payment-form-table td:last-child {
+  border-right: none;
+}
+
+.span-sent,
+.btn-send {
+  display: inline-block;
+  padding: 1px 10px;
+  padding-bottom: 1px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 1s, color 1s, border 1s;
+  font-size: smaller;
+  width: auto;
+  height: auto;
+  line-height: normal;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.btn-send {
+  background-color: #e3e3e3;
+  color: #333333;
+  border: 1px solid #cccccc;
+}
+
+.span-sent {
+  background-color: #4d4d4d;
+  color: #ffffff;
+  border: 1px solid #3a3a3a;
+}
+
+#saveAllChanges:hover,
+#addProductButton {
+  background-color: #4d4d4d;
+  color: #ffffff;
+  border: 1px solid #4d4d4d;
+  transition: background-color 0.5s, color 0.5s;
+}
+
+#saveAllChanges,
+#addProductButton:hover {
+  background-color: transparent;
+  color: #4d4d4d;
+  border-color: #4d4d4d;
+}
